@@ -1,5 +1,6 @@
 package com.example.mapsexample
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -69,13 +70,14 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         )
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun createRoute(starRoute: String, endRoute: String) {
         Log.d("VAAP", starRoute)
         Log.d("VAAP", endRoute)
         CoroutineScope(Dispatchers.IO).launch {
          val call = getRetrofit()
              .create(ApiService::class.java)
-             .getRoute("5b3ce3597851110001cf6248bbeffefb51fa443c81055a40c22883e2",
+             .getRoute("",
                  starRoute,
                  endRoute
              )
